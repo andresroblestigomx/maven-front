@@ -1,0 +1,1578 @@
+<div style="padding-left: 0px;">
+    <h4 style="padding-top: 5%;"><b>Well Creation</b></h4>
+
+
+
+    <div style="padding-top: 2%;" *ngIf="!perforationInformationFlag && !pumpSchedulePrevFlag && !pumpScheduleFlag"
+        class="frame-wrap">
+        <form [formGroup]="formGeneralWell">
+
+            <!--------------------------- GeneralWellInfo----------------------------------->
+
+
+
+            <div *ngIf="generalWell">
+
+                <div class="row">
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-5">
+                        <h5 style="padding-top: 2%;"><b>General Well Information</b></h5>
+                    </div>
+                    <div class="col-md-3">
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-4">
+
+
+                        <igx-select formControlName="jobType" (selectionChange)="asignarValor($event)" #select>
+                            <label igxLabel>Job Type</label>
+                            <igx-select-item *ngFor="let catalogo of listaJobType;" [value]="catalogo.id">
+                                {{catalogo.descripcion}}
+                            </igx-select-item>
+                        </igx-select>
+
+
+
+                    </div>
+
+                    <div class="col-md-4">
+
+
+
+                        <igx-select formControlName="sandSource" (selectionChange)="asignarValor($event)" #select>
+                            <label igxLabel>Sand Source</label>
+                            <igx-select-item *ngFor="let catalogo of listaSandSource;" [value]="catalogo.id">
+                                {{catalogo.descripcion}}
+                            </igx-select-item>
+                        </igx-select>
+
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="row" style="padding-top: 2%;">
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="wellName" type="text"
+                                [(ngModel)]="generalWellInfo.wellName" placeholder="Well Name" />
+
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="apiNumber" type="text"
+                                [(ngModel)]="generalWellInfo.apiNumber" placeholder="Api Number" />
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="afeNumber" [(ngModel)]="generalWellInfo.afeNumber"
+                                type="text" placeholder="Afe Number" />
+
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+                </div>
+
+                <div class="row" style="padding-top: 2%;">
+
+
+
+                    <div class="col-md-6">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="latitudeTop" [(ngModel)]="generalWellInfo.latitudeTop"
+                                type="text" placeholder="Latitude Top" />
+
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+                    </div>
+
+                    <div class="col-md-6">
+
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="longitudeTop" type="text" placeholder="longitude Top" />
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+                    </div>
+
+
+
+                </div>
+
+
+                <div class="row" style="padding-top: 2%;">
+
+                    <div class="col-md-6">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="pumpingServiceCompany" type="text"
+                                [(ngModel)]="generalWellInfo.pumpingServiceCompany"
+                                placeholder="Pumping Services Company" />
+
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="wireLineCompany" type="text"
+                                [(ngModel)]="generalWellInfo.wireLineCompany" placeholder="Wire Line Company" />
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+
+
+                </div>
+            </div>
+        </form>
+
+        <!--------------------------- CompletionDesign----------------------------------->
+
+        <form [formGroup]="formCompletionDesign">
+            <div *ngIf="completionDesignFlag">
+
+                <div class="row">
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-6">
+                        <h5 style="padding-top: 2%;"><b>Completion Design Information</b></h5>
+                    </div>
+                    <div class="col-md-3">
+                    </div>
+                </div>
+                <div class="row" style="padding-top: 2%;">
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="plannedNumberStages" type="text"
+                                [(ngModel)]="completionDesign.plannedNumberStages"
+                                placeholder="Planned Number Stages" />
+
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="plannedNumberStagesPerDay" type="text"
+                                [(ngModel)]="completionDesign.plannedNumberStagesPerDay"
+                                placeholder="Planned Stages Per Day" />
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="plannedClusterSpacing"
+                                [(ngModel)]="completionDesign.plannedClusterSpacing" type="text"
+                                placeholder="Planned Cluster Spacing" />
+
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+                </div>
+
+                <div class="row" style="padding-top: 2%;">
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="planneedCompletedLateral" type="text"
+                                [(ngModel)]="completionDesign.planneedCompletedLateral"
+                                placeholder="Planneed Completed Lateral" />
+
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+                    </div>
+
+                    <div class="col-md-4">
+
+
+                        <igx-select formControlName="simulationFluid" (selectionChange)="asignarValor($event)" #select>
+                            <label igxLabel>SimulationFluid</label>
+                            <igx-select-item *ngFor="let catalogo of listaSimulation;" [value]="catalogo.id">
+                                {{catalogo.descripcion}}
+                            </igx-select-item>
+                        </igx-select>
+
+
+
+                    </div>
+
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="surfaceVolume" [(ngModel)]="completionDesign.surfaceVolume"
+                                type="text" placeholder="Surface Volume" />
+
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+                </div>
+
+
+                <div class="row" style="padding-top: 2%;">
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="overFlush" type="text"
+                                [(ngModel)]="completionDesign.overFlush" placeholder="Overflush" />
+
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="hidraulicHorsePower" type="text"
+                                [(ngModel)]="completionDesign.hidraulicHorsePower"
+                                placeholder="Hidraulic Horse Power" />
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+
+                    <div class="col-md-4">
+
+
+                        <igx-select formControlName="proppantTypeMesh" (selectionChange)="asignarValor($event)" #select>
+                            <label igxLabel>Proppant Type Mesh</label>
+                            <igx-select-item *ngFor="let catalogo of listaPropantType;" [value]="catalogo.id">
+                                {{catalogo.descripcion}}
+                            </igx-select-item>
+                        </igx-select>
+
+
+
+
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="row" style="padding-top: 2%;">
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="proppantSpecificGravity" type="text"
+                                [(ngModel)]="completionDesign.proppantSpecificGravity"
+                                placeholder="Proppant Specific Gravity" />
+
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="proppantSupplier" type="text"
+                                [(ngModel)]="completionDesign.proppantSupplier" placeholder="Proppant Supplier" />
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="proppantCommercialName"
+                                [(ngModel)]="completionDesign.proppantCommercialName" type="text"
+                                placeholder="Proppant Commercial Name" />
+
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+        </form>
+
+
+        <!--------------------------- PerforationDesign----------------------------------->
+
+        <form [formGroup]="formPerforationGun">
+            <div *ngIf="perforationDesignFlag">
+
+
+                <div class="row">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-8">
+                        <h5 style="padding-top: 2%;"><b>Perforation and Gun Design Information</b></h5>
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+
+                <div class="row" style="padding-top: 2%;">
+
+                    <div class="col-md-4">
+
+                        <igx-select formControlName="perforationTechnique" (selectionChange)="asignarValor($event)"
+                            #select>
+                            <label igxLabel>Perforation Technique</label>
+                            <igx-select-item *ngFor="let catalogo of listaPerforationTechnique;" [value]="catalogo.id">
+                                {{catalogo.descripcion}}
+                            </igx-select-item>
+                        </igx-select>
+
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="perforationDiameter" type="text"
+                                [(ngModel)]="perforationDesign.perforationDiameter"
+                                placeholder="Perforation Diameter" />
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="CorrectedPerfDiameter"
+                                [(ngModel)]="perforationDesign.CorrectedPerfDiameter" type="text"
+                                placeholder="Corrected Perforation Diameter" />
+
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+        </form>
+
+
+        <!--------------------------- Wellbore Configuration----------------------------------->
+
+        <form [formGroup]="formWellboreConfiguration">
+            <div *ngIf="wellboreConfigurationFlag">
+
+                <div class="row">
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-6">
+                        <h5 style="padding-top: 2%;"><b>Wellbore Configuration</b></h5>
+                    </div>
+                    <div class="col-md-3">
+                    </div>
+                </div>
+                <div class="row" style="padding-top: 2%;">
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="casingType" type="text"
+                                [(ngModel)]="wellboreConfiration.casingType" placeholder="Casing Type" />
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="casingWeigth" type="text"
+                                [(ngModel)]="wellboreConfiration.casingWeigth" placeholder="Casing Weigth" />
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="capactity" [(ngModel)]="wellboreConfiration.capactity"
+                                type="text" placeholder="Capactity" />
+
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+                </div>
+
+
+                <div class="row" style="padding-top: 2%;">
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="casingOD" type="text"
+                                [(ngModel)]="wellboreConfiration.casingOD" placeholder="Casing OD" />
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="casingID" type="text"
+                                [(ngModel)]="wellboreConfiration.casingID" placeholder="Casing ID" />
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="length" [(ngModel)]="wellboreConfiration.length"
+                                type="text" placeholder="Length" />
+
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="row" style="padding-top: 2%;">
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="casingYield" type="text"
+                                [(ngModel)]="wellboreConfiration.casingYield" placeholder="Casing Yield" />
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="burst" type="text" [(ngModel)]="wellboreConfiration.burst"
+                                placeholder="Burst" />
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="collapse" [(ngModel)]="wellboreConfiration.collapse"
+                                type="text" placeholder="Collapse" />
+
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+                </div>
+
+
+                <div class="row" style="padding-top: 2%;">
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="casingBrinellHardness" type="text"
+                                [(ngModel)]="wellboreConfiration.casingBrinellHardness"
+                                placeholder="Casing Brinell Hardness" />
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="injectionPAth" type="text"
+                                [(ngModel)]="wellboreConfiration.injectionPAth" placeholder="Injection Path" />
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="shortJoint" [(ngModel)]="wellboreConfiration.shortJoint"
+                                type="text" placeholder="shortJoint" />
+
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+                </div>
+
+
+                <div class="row" style="padding-top: 2%;">
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="groundLevelElevation" type="text"
+                                [(ngModel)]="wellboreConfiration.groundLevelElevation"
+                                placeholder="Ground Level Elevation" />
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="kellyBushingElevation" type="text"
+                                [(ngModel)]="wellboreConfiration.kellyBushingElevation"
+                                placeholder="Kelly Bushing Elevation" />
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="kopDepth" [(ngModel)]="wellboreConfiration.kopDepth"
+                                type="text" placeholder="kopDepth" />
+
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+                </div>
+
+
+                <div class="row" style="padding-top: 2%;">
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="thirtyDegDepth" type="text"
+                                [(ngModel)]="wellboreConfiration.thirtyDegDepth" placeholder="Thirty Deg Depth" />
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="sixtydegDepth" type="text"
+                                [(ngModel)]="wellboreConfiration.sixtydegDepth" placeholder="Sixtyd Deg Depth" />
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="ninetyDegDepth"
+                                [(ngModel)]="wellboreConfiration.ninetyDegDepth" type="text"
+                                placeholder="Ninety Deg Depth" />
+
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+                </div>
+
+                <div class="row" style="padding-top: 2%;">
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="plugBackTotalDepth" type="text"
+                                [(ngModel)]="wellboreConfiration.plugBackTotalDepth"
+                                placeholder="Plug Back Total Depth" />
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="totalMeasuredDepth" type="text"
+                                [(ngModel)]="wellboreConfiration.totalMeasuredDepth"
+                                placeholder="total Measured Depth" />
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="trueVerticalDepth"
+                                [(ngModel)]="wellboreConfiration.trueVerticalDepth" type="text"
+                                placeholder="True Vertical Depth" />
+
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+
+        <!--------------------------- GeologyRelated----------------------------------->
+
+        <form [formGroup]="formGeologyRelated">
+            <div *ngIf="geologyRelatedConfigFlag">
+                <div class="row">
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-6">
+                        <h5 style="padding-top: 2%;"><b>Geology Related Information</b></h5>
+                    </div>
+                    <div class="col-md-3">
+                    </div>
+                </div>
+                <div class="row" style="padding-top: 2%;">
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="formation" type="text"
+                                [(ngModel)]="geologyRelatedConfig.formation" placeholder="Formation" />
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="fluidTemperature" type="text"
+                                [(ngModel)]="geologyRelatedConfig.fluidTemperature" placeholder="Fluid Temperature" />
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="bottomholeTemperature"
+                                [(ngModel)]="geologyRelatedConfig.bottomholeTemperature" type="text"
+                                placeholder="Bottom Hole Temperature" />
+
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+        </form>
+
+
+        <!--------------------------- Diagnostics Information----------------------------------->
+
+        <form [formGroup]="formDiagnosticsInformation">
+            <div *ngIf="diagnosticsInformationFlag">
+                <div class="row">
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-6">
+                        <h5 style="padding-top: 2%;"><b>Diagnostics Information</b></h5>
+                    </div>
+                    <div class="col-md-3">
+                    </div>
+                </div>
+                <div class="row" style="padding-top: 2%;">
+
+                    <div class="col-md-3">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="miroSeismic" type="text"
+                                [(ngModel)]="diagnosticsInformation.miroSeismic" placeholder="MicroSeismic" />
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="fluidOrOil" type="text"
+                                [(ngModel)]="diagnosticsInformation.fluidOrOil" placeholder="fluid Or Oil Tracer" />
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+
+                    <div class="col-md-3">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="opticFiber" [(ngModel)]="diagnosticsInformation.opticFiber"
+                                type="text" placeholder="Optic Fiber" />
+
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="otherDiagnostics"
+                                [(ngModel)]="diagnosticsInformation.otherDiagnostics" type="text"
+                                placeholder="Other Diagnostics" />
+
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+
+
+
+                    </div>
+
+
+
+
+                </div>
+
+
+                <div class="row" style="padding-top: 2%;">
+
+                    <div class="col-md-6">
+
+
+                        <igx-select formControlName="chemType" (selectionChange)="asignarValor($event)" #select>
+                            <label igxLabel>Chem Type</label>
+                            <igx-select-item *ngFor="let catalogo of listaChemType;" [value]="catalogo.id">
+                                {{catalogo.descripcion}}
+                            </igx-select-item>
+                        </igx-select>
+
+                    </div>
+                </div>
+
+            </div>
+        </form>
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+    <div class="row" *ngIf="!perforationInformationFlag && !pumpSchedulePrevFlag && !pumpScheduleFlag"
+        style="padding-top: 3%; padding-left: 5%;">
+
+
+        <div class="col-md-3">
+
+            <button type="button" class="btn btn-blue" igxButton="raised" (click)="back()">Back
+            </button>
+
+        </div>
+        <div class="col-md-3">
+
+            <button type="button" class="btn btn-blue" igxButton="raised" (click)="siguiente()">Next
+                Page
+            </button>
+
+
+
+        </div>
+
+        <div class="col-md-3">
+        </div>
+
+
+    </div>
+</div>
+
+
+
+
+<div *ngIf="perforationInformationFlag || pumpSchedulePrevFlag || pumpScheduleFlag">
+    <div *ngIf="perforationInformationFlag">
+        <igx-grid igxPreventDocumentScroll #grid1 id="grid1" [data]="perforationList" [autoGenerate]="false"
+            height="500px" width="auto" [showToolbar]="true" (rowEditEnter)="rowEditEnter($event)"
+            (cellEditEnter)="cellEditEnter($event)" (cellEdit)="cellEdit($event)"
+            toolbarTitle="Perforation Information">
+
+
+
+            <igx-column field="idStage" header="Stage" width="150px" [resizable]="true">
+                <ng-template igxCell let-cell="cell">
+
+                    <span class="athlete_name">{{ cell.value }}</span>
+
+                </ng-template>
+            </igx-column>
+
+
+            <igx-column field="topPerforation" header="Top Perforation MD (ft)" width="150px" [editable]="true"
+                [resizable]="true">
+                <ng-template igxCell let-cell="cell">
+
+                    <span class="athlete_name">{{ cell.value }}</span>
+
+                </ng-template>
+            </igx-column>
+
+            <igx-column field="bottomPerf" header="Bottom Perforation MD (ft)" width="150px" [editable]="true"
+                [resizable]="true">
+                <ng-template igxCell let-cell="cell">
+
+                    <span class="athlete_name">{{ cell.value }}</span>
+
+                </ng-template>
+            </igx-column>
+
+            <igx-column field="plugSettingDepth" header="Plug Set Depth (ft)" width="150px" [editable]="true"
+                [resizable]="true">
+                <ng-template igxCell let-cell="cell">
+
+                    <span class="athlete_name">{{ cell.value }}</span>
+
+                </ng-template>
+            </igx-column>
+
+
+            <igx-column field="pipeCap" header="Pipe Capacity  (bbl)" width="250px" [resizable]="true">
+                <ng-template igxCell let-cell="cell">
+
+                    <span class="athlete_name">{{ cell.value }}</span>
+
+                </ng-template>
+            </igx-column>
+
+
+            <igx-column field="stageSpacing" header="Stage Spacing (plug-plug, ft)" width="150px" [resizable]="true">
+                <ng-template igxCell let-cell="cell">
+
+                    <span class="athlete_name">{{ cell.value }}</span>
+
+                </ng-template>
+            </igx-column>
+
+
+            <igx-column field="perforationCoverage" header="Perforation Coverage (ft)" width="150px" [resizable]="true">
+                <ng-template igxCell let-cell="cell">
+
+                    <span class="athlete_name">{{ cell.value }}</span>
+
+                </ng-template>
+            </igx-column>
+
+            <igx-column field="midPerforation" header="Mid Perforation MD (ft)" width="150px" [resizable]="true">
+                <ng-template igxCell let-cell="cell">
+
+                    <span class="athlete_name">{{ cell.value }}</span>
+
+                </ng-template>
+            </igx-column>
+
+            <igx-column field="perforationPhasing" header="Perforation Phasing (deg)" width="150px" [editable]="true"
+                [resizable]="true">
+                <ng-template igxCell let-cell="cell">
+
+                    <span class="athlete_name">{{ cell.value }}</span>
+
+                </ng-template>
+            </igx-column>
+
+            <igx-column field="numOflusters" header="Num of Clusters /stg" width="150px" [editable]="true"
+                [resizable]="true">
+                <ng-template igxCell let-cell="cell">
+
+                    <span class="athlete_name">{{ cell.value }}</span>
+
+                </ng-template>
+            </igx-column>
+
+            <igx-column field="clusterSpacing" header="Cluster Spacing (ft)" width="150px" [editable]="true"
+                [resizable]="true">
+                <ng-template igxCell let-cell="cell">
+
+                    <span class="athlete_name">{{ cell.value }}</span>
+
+                </ng-template>
+            </igx-column>
+
+            <igx-column field="numOfPerfs" header="Num of Perfs /stg" width="150px" [editable]="true"
+                [resizable]="true">
+                <ng-template igxCell let-cell="cell">
+
+                    <span class="athlete_name">{{ cell.value }}</span>
+
+                </ng-template>
+            </igx-column>
+
+
+
+
+
+
+        </igx-grid>
+    </div>
+
+    <div *ngIf="pumpSchedulePrevFlag" style="padding-left: 222px;">
+
+        <div style="padding-top: 2%;">
+
+            <form [formGroup]="formNumberOfPump">
+                <div class="row">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Number Pump stages</h5>
+                    </div>
+
+                    <div class="col-md-4">
+                    </div>
+
+                </div>
+                <div class="row" style="padding-top: 2%;">
+
+                    <div class="col-md-2">
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput formControlName="numberOfPumps" type="text"
+                                placeholder="Number Pump stages" />
+
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple [active]="false">
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+                    </div>
+
+
+                    <div class="col-md-4">
+                    </div>
+
+
+                </div>
+
+
+            </form>
+
+
+        </div>
+    </div>
+
+    <div *ngIf="pumpScheduleFlag">
+        <igx-grid igxPreventDocumentScroll #grid1 id="grid1" [data]="pumpScheduleList" [autoGenerate]="false"
+            height="500px" width="auto" [showToolbar]="true" (rowEditEnter)="rowEditEnter($event)"
+            (cellEditEnter)="cellEditEnter($event)" (cellEdit)="cellEdit($event)" toolbarTitle="Pump Schedule Design">
+
+
+
+            <igx-column field="idPump" header="Pump Stage" width="150px" [resizable]="true">
+                <ng-template igxCell let-cell="cell">
+
+                    <span class="athlete_name">{{ cell.value }}</span>
+
+                </ng-template>
+            </igx-column>
+
+
+            <igx-column field="type" header="Type" width="150px" [editable]="true" [resizable]="true">
+                <ng-template igxCell let-cell="cell">
+
+                    <span class="athlete_name">{{ cell.value }}</span>
+
+                </ng-template>
+            </igx-column>
+
+            <igx-column field="fluidType" header="Fluid Type" width="150px" [editable]="true" [resizable]="true">
+                <ng-template igxCell let-cell="cell">
+
+                    <span class="athlete_name">{{ cell.value }}</span>
+
+                </ng-template>
+            </igx-column>
+
+            <igx-column field="propantType" header="Proppant Type" width="150px" [editable]="true" [resizable]="true">
+                <ng-template igxCell let-cell="cell">
+
+                    <span class="athlete_name">{{ cell.value }}</span>
+
+                </ng-template>
+            </igx-column>
+
+
+            <igx-column field="conc" header="Conc. (ppg)" width="250px" [editable]="true" [resizable]="true">
+                <ng-template igxCell let-cell="cell">
+
+                    <span class="athlete_name">{{ cell.value }}</span>
+
+                </ng-template>
+            </igx-column>
+
+
+            <igx-column field="cleanVol" header="Clean Vol. (gal)" width="150px" [resizable]="true">
+                <ng-template igxCell let-cell="cell">
+
+                    <span class="athlete_name">{{ cell.value }}</span>
+
+                </ng-template>
+            </igx-column>
+
+
+            <igx-column field="slurryVol" header="Slurry Vol. (gal)" width="150px" [editable]="true" [resizable]="true">
+                <ng-template igxCell let-cell="cell">
+
+                    <span class="athlete_name">{{ cell.value }}</span>
+
+                </ng-template>
+            </igx-column>
+
+            <igx-column field="scale" header="scale*" width="150px" [editable]="true" [resizable]="true">
+                <ng-template igxCell let-cell="cell">
+
+                    <span class="athlete_name">{{ cell.value }}</span>
+
+                </ng-template>
+            </igx-column>
+
+            <igx-column field="surf" header="surf*" width="150px" [editable]="true" [resizable]="true">
+                <ng-template igxCell let-cell="cell">
+
+                    <span class="athlete_name">{{ cell.value }}</span>
+
+                </ng-template>
+            </igx-column>
+
+            <igx-column field="bio" header="Bio*" width="150px" [editable]="true" [resizable]="true">
+                <ng-template igxCell let-cell="cell">
+
+                    <span class="athlete_name">{{ cell.value }}</span>
+
+                </ng-template>
+            </igx-column>
+
+            <igx-column field="fr" header="fr*" width="150px" [editable]="true" [resizable]="true">
+                <ng-template igxCell let-cell="cell">
+
+                    <span class="athlete_name">{{ cell.value }}</span>
+
+                </ng-template>
+            </igx-column>
+
+            <igx-column field="gel" header="Gel*" width="150px" [editable]="true" [resizable]="true">
+                <ng-template igxCell let-cell="cell">
+
+                    <span class="athlete_name">{{ cell.value }}</span>
+
+                </ng-template>
+            </igx-column>
+
+
+            <igx-column field="xLink" header="X-Link*" width="150px" [editable]="true" [resizable]="true">
+                <ng-template igxCell let-cell="cell">
+
+                    <span class="athlete_name">{{ cell.value }}</span>
+
+                </ng-template>
+            </igx-column>
+
+
+            <igx-column field="sp" header="sp*" width="150px" [editable]="true" [resizable]="true">
+                <ng-template igxCell let-cell="cell">
+
+                    <span class="athlete_name">{{ cell.value }}</span>
+
+                </ng-template>
+            </igx-column>
+
+
+            <igx-column field="rate" header="Rate" width="150px" [editable]="true" [resizable]="true">
+                <ng-template igxCell let-cell="cell">
+
+                    <span class="athlete_name">{{ cell.value }}</span>
+
+                </ng-template>
+            </igx-column>
+
+
+
+
+
+
+        </igx-grid>
+
+    </div>
+
+
+
+    <div class="row" style="padding-top: 3%; padding-left: 25%;">
+
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-3">
+
+            <button type="button" class="btn btn-blue" igxButton="raised" (click)="back()">Back
+            </button>
+
+        </div>
+        <div class="col-md-3">
+
+            <button type="button" class="btn btn-blue" igxButton="raised" (click)="siguiente()">Next
+                Page
+            </button>
+
+
+
+        </div>
+
+        <div class="col-md-3">
+        </div>
+
+
+    </div>
+
+</div>

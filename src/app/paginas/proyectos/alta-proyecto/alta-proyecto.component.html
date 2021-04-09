@@ -1,0 +1,294 @@
+<div style="padding-left: 310px;">
+    <h4 style="padding-top: 5%;" *ngIf="!editar"><b>Alta de proyecto</b></h4>
+    <h4 style="padding-top: 5%;" *ngIf="editar"><b>Edicion de proyecto</b></h4>
+
+
+    <div style="padding-top: 5%;" class="frame-wrap">
+        <form [formGroup]="formUsuario">
+
+
+            <div class="row">
+
+                <div class="col-md-4">
+
+
+                    <igx-select formControlName="state" (selectionChange)="asignarValor($event)" #select>
+                        <label igxLabel>Country</label>
+                        <igx-select-item *ngFor="let catalogo of listaState;" [value]="catalogo.id">
+                            {{catalogo.descripcion}}
+                        </igx-select-item>
+                    </igx-select>
+
+
+
+                </div>
+
+                <div class="col-md-4">
+
+
+
+                    <igx-select formControlName="county" (selectionChange)="asignarValor($event)" #select>
+                        <label igxLabel>State</label>
+                        <igx-select-item *ngFor="let catalogo of listaCounty;" [value]="catalogo.id">
+                            {{catalogo.descripcion}}
+                        </igx-select-item>
+                    </igx-select>
+
+
+                </div>
+
+                <div class="col-md-4">
+
+                    
+                    <igx-select formControlName="county" (selectionChange)="asignarValor($event)" #select>
+                        <label igxLabel>County</label>
+                        <igx-select-item *ngFor="let catalogo of listaCounty;" [value]="catalogo.id">
+                            {{catalogo.descripcion}}
+                        </igx-select-item>
+                    </igx-select>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="row" style="padding-top: 2%;">
+
+                <div class="col-md-4">
+
+                    <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                        style="background-color: #ecf4fc;" class="fields">
+
+                        <input igxInput formControlName="padName" type="text" [(ngModel)]="proyecto.padName"
+                            placeholder="*Pad Name" />
+
+                        <igx-suffix>
+                            <span igxDrawerItem igxRipple [active]="false">
+                                <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                            </span>
+                        </igx-suffix>
+                    </igx-input-group>
+
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                        style="background-color: #ecf4fc;" class="fields">
+
+                        <input igxInput formControlName="numberOfWells" type="text" [(ngModel)]="proyecto.numberOfWells"
+                            placeholder="Number Of Wells" />
+                        <igx-suffix>
+                            <span igxDrawerItem igxRipple [active]="false">
+                                <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                            </span>
+                        </igx-suffix>
+                    </igx-input-group>
+
+
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                        style="background-color: #ecf4fc;" class="fields">
+
+                        <input igxInput formControlName="field" [(ngModel)]="proyecto.field" type="text"
+                            placeholder="Field" />
+
+                        <igx-suffix>
+                            <span igxDrawerItem igxRipple [active]="false">
+                                <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                            </span>
+                        </igx-suffix>
+                    </igx-input-group>
+
+
+
+                </div>
+
+            </div>
+
+            <div class="row" style="padding-top: 2%;">
+
+
+
+                <div class="col-md-6">
+
+                    <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                        style="background-color: #ecf4fc;" class="fields">
+
+                        <input igxInput formControlName="latitude" [(ngModel)]="proyecto.latitude" type="text"
+                            placeholder="Latitude" />
+
+                        <igx-suffix>
+                            <span igxDrawerItem igxRipple [active]="false">
+                                <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                            </span>
+                        </igx-suffix>
+                    </igx-input-group>
+
+
+                </div>
+
+                <div class="col-md-6">
+
+
+                    <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                        style="background-color: #ecf4fc;" class="fields">
+
+                        <input igxInput formControlName="longitude" type="text" placeholder="Longitude" />
+                        <igx-suffix>
+                            <span igxDrawerItem igxRipple [active]="false">
+                                <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                            </span>
+                        </igx-suffix>
+                    </igx-input-group>
+
+                </div>
+
+
+
+            </div>
+
+
+            <div class="row" style="padding-top: 2%;">
+
+                <div class="col-md-6">
+
+                    <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                        style="background-color: #ecf4fc;" class="fields">
+
+                        <input igxInput formControlName="pumplingSerivcesNpt" type="text"
+                            [(ngModel)]="proyecto.pumplingSerivcesNpt"
+                            placeholder="Pumping Services NPT Grace Period" />
+
+                        <igx-suffix>
+                            <span igxDrawerItem igxRipple [active]="false">
+                                <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                            </span>
+                        </igx-suffix>
+                    </igx-input-group>
+
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                        style="background-color: #ecf4fc;" class="fields">
+
+                        <input igxInput formControlName="wirelineSerivcesNpt" type="text"
+                            [(ngModel)]="proyecto.wirelineSerivcesNpt"
+                            placeholder="Wireline Services NPT Grace Period (hrs):" />
+                        <igx-suffix>
+                            <span igxDrawerItem igxRipple [active]="false">
+                                <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                            </span>
+                        </igx-suffix>
+                    </igx-input-group>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+            <div class="row" style="padding-top: 2%;">
+
+                <div class="col-md-4">
+
+                    <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                        style="background-color: #ecf4fc;" class="fields">
+
+                        <input igxInput formControlName="accepatableChem" type="text"
+                            [(ngModel)]="proyecto.accepatableChem" placeholder="Acceptable Chem usage variation (%)" />
+
+                        <igx-suffix>
+                            <span igxDrawerItem igxRipple [active]="false">
+                                <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                            </span>
+                        </igx-suffix>
+                    </igx-input-group>
+
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                        style="background-color: #ecf4fc;" class="fields">
+
+                        <input igxInput formControlName="acceptableSanf" type="text"
+                            [(ngModel)]="proyecto.acceptableSanf" placeholder="Acceptable Sand Sieve Capture (%)" />
+                        <igx-suffix>
+                            <span igxDrawerItem igxRipple [active]="false">
+                                <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                            </span>
+                        </igx-suffix>
+                    </igx-input-group>
+
+
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                        style="background-color: #ecf4fc;" class="fields">
+
+                        <input igxInput formControlName="accetableChemRate" [(ngModel)]="proyecto.accetableChemRate"
+                            type="text" placeholder="Acceptable Chem Rate Variation (%)" />
+
+                        <igx-suffix>
+                            <span igxDrawerItem igxRipple [active]="false">
+                                <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                            </span>
+                        </igx-suffix>
+                    </igx-input-group>
+
+
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+            <div class="row" style="padding-top: 5%;">
+
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+
+                    <button type="button" class="btn btn-blue" igxButton="raised" (click)="registrar(false)"
+                        *ngIf="!editar">Crear
+                        Proyecto</button>
+                    <button type="button" class="btn btn-blue" igxButton="raised" (click)="registrar(true)"
+                        *ngIf="editar">Editar
+                        Proyecto</button>
+
+
+                </div>
+
+                <div class="col-md-4">
+                </div>
+
+
+            </div>
+
+        </form>
+    </div>
+</div>

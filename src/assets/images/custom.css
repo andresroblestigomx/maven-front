@@ -1,0 +1,38 @@
+/*
+ * Custom code goes here.
+ * A template should always ship with an empty custom.css
+ */
+ #header{ background: red !important; }
+ 
+ 
+ 
+ .latest-offer-section .offer-inner {
+    background-position: center center;
+    background-repeat: no-repeat;
+    clear: both;
+    background-image: url(../img/bizkick-parralex-image.jpg);
+    float: left;
+    padding: 90px 0;
+    text-align: center;
+    width: 100%;
+    background-size: cover;
+    display: none;
+}
+
+
+
+.blogpost-block {
+    float: left;
+    width: 100%;
+    display: block;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    display: none;
+}
+
+.ps_checkout payment-method-logo-block{
+	
+	display: none
+	
+}
+	

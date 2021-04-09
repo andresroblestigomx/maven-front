@@ -1,0 +1,107 @@
+<div *ngIf="isSidebarVisible">
+  <div class="content-wrap">
+    <igx-nav-drawer id="nav" [isOpen]="true">
+      <ng-template igxDrawer>
+        <nav>
+          <span igxDrawerItem [isHeader]="true"> Email Account </span>
+          <span igxDrawerItem igxRipple> Inbox </span>
+          <span igxDrawerItem igxRipple [active]="true"> Drafts </span>
+          <span igxDrawerItem igxRipple> Sent </span>
+          <span igxDrawerItem [isHeader]="true"> Folders </span>
+          <span igxDrawerItem igxRipple> Deleted </span>
+          <span igxDrawerItem igxRipple> Archive </span>
+        </nav>
+      </ng-template>
+    </igx-nav-drawer>
+
+    <main>
+      <span igxButton="icon" igxToggleAction="navigation">
+        <igx-icon fontSet="material">menu</igx-icon>
+      </span>
+    </main>
+  </div>
+  <div>
+
+
+    <div>
+
+      <mat-sidenav-container class="example-container">
+        <mat-sidenav #sidenav mode="side">
+
+
+
+        </mat-sidenav>
+        <mat-sidenav-content>
+
+          <div class="row">
+            <div class="col-md-12">
+              <igx-navbar title="" actionButtonIcon="menu" (click)="entradaMenu()" [isActionButtonVisible]="true">
+                <igx-icon>person</igx-icon>
+                <strong>{{usuario.nombre}} {{usuario.apellidoPaterno}} {{usuario.apellidoMaterno}}</strong>
+                <igx-icon>assignment_ind</igx-icon>
+                <strong *ngIf="tipoUsuario == 4">Rol: Gerente</strong>
+                <strong *ngIf="tipoUsuario == 5">Rol: Vendedor</strong>
+              </igx-navbar>
+            </div>
+          </div>
+          <div class="row" *ngIf="!visible" style="padding-top: 10%">
+
+
+            <div class="col-md-12" align="center">
+
+              <img class="img-fluid-centro" src="assets/images/portada-login.png" alt="D Q">
+            </div>
+
+
+          </div>
+          <div class="row" *ngIf="visible" style="height: 100%;">
+            <div class="col-md-2">
+              <igx-nav-drawer id="nav" [isOpen]="true">
+                <ng-template igxDrawer style="height: 100%; width: 100%">
+                  <nav>
+                    <span igxDrawerItem [isHeader]="true"> <img class="img-fluid" src="assets/images/portada-login.png"
+                        height="100%" width="90%" alt="D Q"> <span style="padding-left: 5%"><strong>
+                          Maven Plataforma</strong></span></span>
+                    <div *ngIf="tipoUsuario == 7">
+                      <a routerLink="alta-cliente"><span igxDrawerItem igxRipple [active]="true">
+                          <igx-icon name="alta" fontSet="filter-icons"></igx-icon> <span>Alta de clientes</span>
+                        </span></a>
+                      <a routerLink="alta-proyecto"><span igxDrawerItem igxRipple [active]="false">
+                          <igx-icon name="estadisticas" fontSet="filter-icons"></igx-icon> <span>Alta de
+                            Proyectos</span>
+                        </span></a>
+                      <a routerLink="alta-pozos">
+                        <span igxDrawerItem igxRipple [active]="false">
+                          <igx-icon name="mapa" fontSet="filter-icons"></igx-icon> <span>Alta de Pozos</span>
+                        </span>
+                      </a>
+
+
+
+                    </div>
+                    <span igxDrawerItem igxRipple [active]="false" (click)="cerrar()">
+                      <igx-icon name="cierre" fontSet="filter-icons"></igx-icon> <span>Cerrar Sesión</span>
+                    </span>
+                  </nav>
+                </ng-template>
+              </igx-nav-drawer>
+            </div>
+            <div class="col-md-10">
+
+              <router-outlet></router-outlet>
+            </div>
+          </div>
+
+        </mat-sidenav-content>
+
+      </mat-sidenav-container>
+    </div>
+
+
+
+  </div>
+</div>
+
+<div *ngIf="!isSidebarVisible">
+  <router-outlet></router-outlet>
+</div>

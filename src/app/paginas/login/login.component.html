@@ -1,0 +1,73 @@
+<form [formGroup]="formCuestionario">
+
+    <div class="row" style="padding-top: 3%;" align="center">
+
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <img class="img-fluid-centro" src="assets/images/portada-login.png" alt="ARK ADMINISTRADOR">
+        </div>
+        <div class="col-md-4"></div>
+
+    </div>
+
+    <div class="row" style="padding-top: 1%;" class="center">
+
+        <div class="col-md-4" class="frame-wrap">
+
+
+                <div class="row" style="padding-left: 3%;">
+
+                    
+                    <div class="col-md-11" style=" padding-top: 1%;">
+                        <b class="font-poppins">INICIA SESIÓN</b>
+                    </div>
+
+                </div>
+              
+
+                    <div class="col-md-12" style=" padding-top: 2%;">
+                        <igx-input-group type="none" style="width: 100%;" style="background-color: #ecf4fc;"
+                            class="fields">
+
+                            <input igxInput name="username" formControlName="correo" type="text"
+                                placeholder="Correo Electrónico" />
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple>
+                                    <igx-icon name="email" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+
+                        </igx-input-group>
+
+
+                        <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                            style="background-color: #ecf4fc;" class="fields">
+
+                            <input igxInput name="password" formControlName="contrasena" type="password"
+                                placeholder="Contraseña" />
+                            <igx-suffix>
+                                <span igxDrawerItem igxRipple>
+                                    <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                                </span>
+                            </igx-suffix>
+                        </igx-input-group>
+                    </div>
+           
+
+        
+            <div class="row" style="padding-top: 5%;" align="center">
+
+                <div class="col-md-12">
+
+                    <button type="button" class="btn btn-blue" (click)="login()" igxButton="raised">INICIAR SESIÓN</button>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</form>

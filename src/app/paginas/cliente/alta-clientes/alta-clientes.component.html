@@ -1,0 +1,193 @@
+<div style="padding-left: 310px;">
+    <h4 style="padding-top: 5%;" *ngIf="!editar"><b>Alta de Cliente</b></h4>
+    <h4 style="padding-top: 5%;" *ngIf="editar"><b>Edicion de Usuario</b></h4>
+
+
+    <div style="padding-top: 5%;" class="frame-wrap">
+        <form [formGroup]="formUsuario">
+
+
+            <div class="row">
+
+                <div class="col-md-4">
+
+
+                    <igx-select formControlName="operatorName" (selectionChange)="asignarValor($event)" #select>
+                        <label igxLabel>Operator Name</label>
+                        <igx-select-item *ngFor="let catalogo of listaOpciones;" [value]="catalogo.id">
+                            {{catalogo.descripcion}}
+                        </igx-select-item>
+                    </igx-select>
+
+
+
+                </div>
+
+                <div class="col-md-4">
+
+
+
+                    <igx-select formControlName="region" (selectionChange)="asignarValor($event)" #select>
+                        <label igxLabel>region</label>
+                        <igx-select-item *ngFor="let catalogo of listaRegion;" [value]="catalogo.id">
+                            {{catalogo.descripcion}}
+                        </igx-select-item>
+                    </igx-select>
+
+
+
+                </div>
+
+                <div class="col-md-4">
+
+
+                    <igx-select formControlName="region" (selectionChange)="asignarValor($event)" #select>
+                        <label igxLabel>Profile Type</label>
+                        <igx-select-item *ngFor="let catalogo of listaProfile;" [value]="catalogo.id">
+                            {{catalogo.descripcion}}
+                        </igx-select-item>
+                    </igx-select>
+
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="row" style="padding-top: 2%;">
+
+                <div class="col-md-4">
+
+                    <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                        style="background-color: #ecf4fc;" class="fields">
+
+                        <input igxInput formControlName="firstName" type="text" [(ngModel)]="usuario.firstName"
+                            placeholder="First Name" />
+
+                        <igx-suffix>
+                            <span igxDrawerItem igxRipple [active]="false">
+                                <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                            </span>
+                        </igx-suffix>
+                    </igx-input-group>
+
+
+
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                        style="background-color: #ecf4fc;" class="fields">
+
+                        <input igxInput formControlName="lastName" type="text" [(ngModel)]="usuario.lastName"
+                            placeholder="Last Name" />
+                        <igx-suffix>
+                            <span igxDrawerItem igxRipple [active]="false">
+                                <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                            </span>
+                        </igx-suffix>
+                    </igx-input-group>
+
+
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                        style="background-color: #ecf4fc;" class="fields">
+
+                        <input igxInput formControlName="company" [(ngModel)]="usuario.company" type="text"
+                            placeholder="Company" />
+
+                        <igx-suffix>
+                            <span igxDrawerItem igxRipple [active]="false">
+                                <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                            </span>
+                        </igx-suffix>
+                    </igx-input-group>
+
+
+
+                </div>
+
+
+
+
+            </div>
+
+            <div class="row" style="padding-top: 2%;">
+
+
+
+                <div class="col-md-6">
+
+                    <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                        style="background-color: #ecf4fc;" class="fields">
+
+                        <input igxInput formControlName="title" [(ngModel)]="usuario.title" type="text"
+                            placeholder="Title" />
+
+                        <igx-suffix>
+                            <span igxDrawerItem igxRipple [active]="false">
+                                <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                            </span>
+                        </igx-suffix>
+                    </igx-input-group>
+
+
+                </div>
+
+                <div class="col-md-6">
+
+
+                    <igx-input-group type="none" style="padding-top: 2%; width: 100%;"
+                        style="background-color: #ecf4fc;" class="fields">
+
+                        <input igxInput formControlName="email" type="text" placeholder="Email" />
+                        <igx-suffix>
+                            <span igxDrawerItem igxRipple [active]="false">
+                                <igx-icon name="lock" fontSet="filter-icons"></igx-icon>
+                            </span>
+                        </igx-suffix>
+                    </igx-input-group>
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+            <div class="row" style="padding-top: 5%;">
+
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+
+                    <button type="button" class="btn btn-blue" igxButton="raised" (click)="registrar(false)"
+                        *ngIf="!editar">Crear
+                        Cliente</button>
+                    <button type="button" class="btn btn-blue" igxButton="raised" (click)="registrar(true)"
+                        *ngIf="editar">Editar
+                        Cliente</button>
+
+
+                </div>
+
+                <div class="col-md-4">
+                </div>
+
+
+            </div>
+
+        </form>
+    </div>
+</div>
